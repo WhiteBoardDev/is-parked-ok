@@ -1,8 +1,45 @@
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-Hello World
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<div id="parker_status">
-</div>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+
+
+<div class="container">
+      <div class="jumbotron">
+        <h1>Is Parker OK?</h1>
+        <p class="lead" id="status">Checking.....</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Recheck! Is Parker OK?</a></p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>What Else is parker up to?</h4>
+          <p>Well he still is a dog, so probably licking something?</p>
+
+          <h4>Curious what parker the dog is up to?</h4>
+          <p>Don't forget to click the button to refresh</p>
+        </div>
+    </div>
+
 <script>
-  $("#parker_status").text("YES");
+
+statuses = ["Yes he is ok", "Yup", "Hes licking something", "He's Sleeping", "Cuddles"];
+
+function check(){
+  $("#status").text("Checking...");
+  waitfor = Math.random() * 3000;
+  setTimeout( function(){
+    newstatus = statuses[Math.round(Math.random() * statuses.length)]
+    $("#status").text(newstatus)
+  }  , waitfor );
+}
+check();
+$("a").click(check)
 </script>
